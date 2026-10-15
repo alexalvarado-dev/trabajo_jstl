@@ -7,7 +7,7 @@
     }
     String dbPort = System.getenv("DB_PORT");
     if (dbPort == null || dbPort.trim().isEmpty()) {
-        dbPort = "3307";
+        dbPort = "3306";
     }
     String dbName = System.getenv("DB_NAME");
     if (dbName == null || dbName.trim().isEmpty()) {
@@ -15,11 +15,11 @@
     }
     String dbUser = System.getenv("DB_USER");
     if (dbUser == null || dbUser.trim().isEmpty()) {
-        dbUser = "estudiantes";
+        dbUser = "root";
     }
     String dbPassword = System.getenv("DB_PASSWORD");
     if (dbPassword == null || dbPassword.trim().isEmpty()) {
-        dbPassword = "Uts2022";
+        dbPassword = "";
     }
     String dbUrl = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName
             + "?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8";
