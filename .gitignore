@@ -1,0 +1,11 @@
+# Editores y sistemas
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+logs/
+target/

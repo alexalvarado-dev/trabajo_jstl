@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%
+    String dbHost = System.getenv("DB_HOST");
+    if (dbHost == null || dbHost.trim().isEmpty()) {
+        dbHost = "localhost";
+    }
+    String dbPort = System.getenv("DB_PORT");
+    if (dbPort == null || dbPort.trim().isEmpty()) {
+        dbPort = "3307";
+    }
+    String dbName = System.getenv("DB_NAME");
+    if (dbName == null || dbName.trim().isEmpty()) {
+        dbName = "empleados";
+    }
+    String dbUser = System.getenv("DB_USER");
+    if (dbUser == null || dbUser.trim().isEmpty()) {
+        dbUser = "estudiantes";
+    }
+    String dbPassword = System.getenv("DB_PASSWORD");
+    if (dbPassword == null || dbPassword.trim().isEmpty()) {
+        dbPassword = "Uts2022";
+    }
+    String dbUrl = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName
+            + "?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8";
+    request.setAttribute("dbUrl", dbUrl);
+    request.setAttribute("dbUser", dbUser);
+    request.setAttribute("dbPassword", dbPassword);
+%>
+
+<sql:setDataSource var="empleados"
+                   driver="com.mysql.jdbc.Driver"
+                   url="${dbUrl}"
+                   user="${dbUser}"
+                   password="${dbPassword}" />
